@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		866F1B321AD79FFB0056E732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F1B311AD79FFB0056E732 /* AppDelegate.swift */; };
+		866F1B341AD79FFB0056E732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F1B331AD79FFB0056E732 /* ViewController.swift */; };
+		866F1B371AD79FFB0056E732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866F1B351AD79FFB0056E732 /* Main.storyboard */; };
+		866F1B391AD79FFB0056E732 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866F1B381AD79FFB0056E732 /* Images.xcassets */; };
+		866F1B3C1AD79FFB0056E732 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866F1B3A1AD79FFB0056E732 /* LaunchScreen.xib */; };
+		866F1B481AD79FFB0056E732 /* music_timerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F1B471AD79FFB0056E732 /* music_timerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		866F1B421AD79FFB0056E732 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 866F1B241AD79FFB0056E732 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 866F1B2B1AD79FFB0056E732;
+			remoteInfo = music_timer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		866F1B2C1AD79FFB0056E732 /* music_timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = music_timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		866F1B301AD79FFB0056E732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		866F1B311AD79FFB0056E732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		866F1B331AD79FFB0056E732 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		866F1B361AD79FFB0056E732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		866F1B381AD79FFB0056E732 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		866F1B3B1AD79FFB0056E732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		866F1B411AD79FFB0056E732 /* music_timerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = music_timerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		866F1B461AD79FFB0056E732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		866F1B471AD79FFB0056E732 /* music_timerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_timerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		866F1B291AD79FFB0056E732 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		866F1B3E1AD79FFB0056E732 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		866F1B231AD79FFB0056E732 = {
+			isa = PBXGroup;
+			children = (
+				866F1B2E1AD79FFB0056E732 /* music_timer */,
+				866F1B441AD79FFB0056E732 /* music_timerTests */,
+				866F1B2D1AD79FFB0056E732 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		866F1B2D1AD79FFB0056E732 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				866F1B2C1AD79FFB0056E732 /* music_timer.app */,
+				866F1B411AD79FFB0056E732 /* music_timerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		866F1B2E1AD79FFB0056E732 /* music_timer */ = {
+			isa = PBXGroup;
+			children = (
+				866F1B311AD79FFB0056E732 /* AppDelegate.swift */,
+				866F1B331AD79FFB0056E732 /* ViewController.swift */,
+				866F1B351AD79FFB0056E732 /* Main.storyboard */,
+				866F1B381AD79FFB0056E732 /* Images.xcassets */,
+				866F1B3A1AD79FFB0056E732 /* LaunchScreen.xib */,
+				866F1B2F1AD79FFB0056E732 /* Supporting Files */,
+			);
+			path = music_timer;
+			sourceTree = "<group>";
+		};
+		866F1B2F1AD79FFB0056E732 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				866F1B301AD79FFB0056E732 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		866F1B441AD79FFB0056E732 /* music_timerTests */ = {
+			isa = PBXGroup;
+			children = (
+				866F1B471AD79FFB0056E732 /* music_timerTests.swift */,
+				866F1B451AD79FFB0056E732 /* Supporting Files */,
+			);
+			path = music_timerTests;
+			sourceTree = "<group>";
+		};
+		866F1B451AD79FFB0056E732 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				866F1B461AD79FFB0056E732 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		866F1B2B1AD79FFB0056E732 /* music_timer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 866F1B4B1AD79FFB0056E732 /* Build configuration list for PBXNativeTarget "music_timer" */;
+			buildPhases = (
+				866F1B281AD79FFB0056E732 /* Sources */,
+				866F1B291AD79FFB0056E732 /* Frameworks */,
+				866F1B2A1AD79FFB0056E732 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = music_timer;
+			productName = music_timer;
+			productReference = 866F1B2C1AD79FFB0056E732 /* music_timer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		866F1B401AD79FFB0056E732 /* music_timerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 866F1B4E1AD79FFB0056E732 /* Build configuration list for PBXNativeTarget "music_timerTests" */;
+			buildPhases = (
+				866F1B3D1AD79FFB0056E732 /* Sources */,
+				866F1B3E1AD79FFB0056E732 /* Frameworks */,
+				866F1B3F1AD79FFB0056E732 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				866F1B431AD79FFB0056E732 /* PBXTargetDependency */,
+			);
+			name = music_timerTests;
+			productName = music_timerTests;
+			productReference = 866F1B411AD79FFB0056E732 /* music_timerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		866F1B241AD79FFB0056E732 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Takuya Tsuruda";
+				TargetAttributes = {
+					866F1B2B1AD79FFB0056E732 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					866F1B401AD79FFB0056E732 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 866F1B2B1AD79FFB0056E732;
+					};
+				};
+			};
+			buildConfigurationList = 866F1B271AD79FFB0056E732 /* Build configuration list for PBXProject "music_timer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 866F1B231AD79FFB0056E732;
+			productRefGroup = 866F1B2D1AD79FFB0056E732 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				866F1B2B1AD79FFB0056E732 /* music_timer */,
+				866F1B401AD79FFB0056E732 /* music_timerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		866F1B2A1AD79FFB0056E732 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				866F1B371AD79FFB0056E732 /* Main.storyboard in Resources */,
+				866F1B3C1AD79FFB0056E732 /* LaunchScreen.xib in Resources */,
+				866F1B391AD79FFB0056E732 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		866F1B3F1AD79FFB0056E732 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		866F1B281AD79FFB0056E732 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				866F1B341AD79FFB0056E732 /* ViewController.swift in Sources */,
+				866F1B321AD79FFB0056E732 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		866F1B3D1AD79FFB0056E732 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				866F1B481AD79FFB0056E732 /* music_timerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		866F1B431AD79FFB0056E732 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 866F1B2B1AD79FFB0056E732 /* music_timer */;
+			targetProxy = 866F1B421AD79FFB0056E732 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		866F1B351AD79FFB0056E732 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				866F1B361AD79FFB0056E732 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		866F1B3A1AD79FFB0056E732 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				866F1B3B1AD79FFB0056E732 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		866F1B491AD79FFB0056E732 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		866F1B4A1AD79FFB0056E732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		866F1B4C1AD79FFB0056E732 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = music_timer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		866F1B4D1AD79FFB0056E732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = music_timer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		866F1B4F1AD79FFB0056E732 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = music_timerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/music_timer.app/music_timer";
+			};
+			name = Debug;
+		};
+		866F1B501AD79FFB0056E732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = music_timerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/music_timer.app/music_timer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		866F1B271AD79FFB0056E732 /* Build configuration list for PBXProject "music_timer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				866F1B491AD79FFB0056E732 /* Debug */,
+				866F1B4A1AD79FFB0056E732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		866F1B4B1AD79FFB0056E732 /* Build configuration list for PBXNativeTarget "music_timer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				866F1B4C1AD79FFB0056E732 /* Debug */,
+				866F1B4D1AD79FFB0056E732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		866F1B4E1AD79FFB0056E732 /* Build configuration list for PBXNativeTarget "music_timerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				866F1B4F1AD79FFB0056E732 /* Debug */,
+				866F1B501AD79FFB0056E732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 866F1B241AD79FFB0056E732 /* Project object */;
+}
