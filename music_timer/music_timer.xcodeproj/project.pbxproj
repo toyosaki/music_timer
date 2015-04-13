@@ -405,6 +405,7 @@
 				866F1B4D1AD79FFB0056E732 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		866F1B4E1AD79FFB0056E732 /* Build configuration list for PBXNativeTarget "music_timerTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +414,7 @@
 				866F1B501AD79FFB0056E732 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
