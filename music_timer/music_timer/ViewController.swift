@@ -7,21 +7,17 @@
 //
 
 import UIKit
+import makeArrayFramework
 
 
 class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
-    func makeArray(inout array:[Int]) {
-        for var i = 0 ; i<60 ; i++ {
-            array[i] = i+1
-        }
-    }
+    @IBOutlet weak var jsonTextView: UITextView!
     
     var myUIPicker: UIPickerView = UIPickerView()
     
-    var minArray:NSArray = ["1"]
-    makeArray(&minArray)
-    var secArray:NSArray = ["1","2","3","4","5","6","7"]
+    var minArray:NSArray = makeArray.make();
+    var secArray:NSArray = makeArray.make();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +26,9 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         myUIPicker.delegate = self
         myUIPicker.dataSource = self
         self.view.addSubview(myUIPicker)
+        
+        var test1:makeArray = makeArray()
+        test1.hoge()
     }
     
     //表示例
@@ -50,9 +49,9 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     //表示内容
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         if(component == 0){
-            return minArray[row] as String
+            return minArray[row].description  //数値からstring　型変換
         }else if(component == 1){
-            return secArray[row] as String
+            return secArray[row].description  //数値からstring 型変換
         }
         return "";
     }
@@ -68,6 +67,74 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         }
     }
     
+    
+    @IBAction func getJsonData(sender: AnyObject) {
+        
+        //パラメータを作成
+        var dict:Dictionary = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","maxResults":"20"]
+        
+        func stringByAddingPercentEncodingForURLQueryValue(value:AnyObject) -> String? {
+            let characterSet = NSMutableCharacterSet.alphanumericCharacterSet()
+            characterSet.addCharactersInString("-._~")
+            var str:String = "\(value)"
+            return str.stringByAddingPercentEncodingWithAllowedCharacters(characterSet)
+        }
+        
+        func stringFromHttpParameters( dict:Dictionary<String, AnyObject> ) -> String
+        {
+            let parameterArray = map(dict) { (key, value) -> String in
+                let percentEscapedKey = stringByAddingPercentEncodingForURLQueryValue(key)!
+                let percentEscapedValue = stringByAddingPercentEncodingForURLQueryValue(value)!
+                return "\(percentEscapedKey)=\(percentEscapedValue)"
+            }
+            
+            return join("&", parameterArray)
+        }
+        
+        
+        println(stringFromHttpParameters(dict))
+        
+        var param = stringFromHttpParameters(dict)
+        
+        var allurl:String = "https://www.googleapis.com/youtube/v3/search?" + param
+        
+        
+        
+        //urlのインスタンスを生成
+        var url = NSURL(string: allurl)
+        //リクエストを生成
+        var request = NSMutableURLRequest(URL: url!)
+        
+        request.HTTPMethod = "GET"
+        
+        var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {
+            data, response, error in
+            if (error == nil){
+                var result = NSString(data: data, encoding: NSUTF8StringEncoding)!
+                println(result)
+            }else{
+                println(error)
+            }
+        })
+        task.resume()
+    
+//        //リクエストを飛ばしてjsonデータを取得
+//        var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: nil)
+//        //パースする
+//        var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil) as! NSDictionary
+//        
+//        var pond: AnyObject = json["pond"]!
+//        var value1:AnyObject = pond[0]
+//        var value11:String = (value1["user_id"] as? String)!
+//        var value12:String = (value1["name"] as? String)!
+//        var value13:Int = value1["status"] as! Int
+//        var value14:Int = value1["float"] as! Int
+//        
+//        
+//        var info:String =  value11 + "\n" + value12 + "\n" + String(value13) + "\n" + String(value14) + "\n"
+//        jsonTextView.text = info
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
