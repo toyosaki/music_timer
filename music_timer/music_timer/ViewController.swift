@@ -71,7 +71,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     @IBAction func getJsonData(sender: AnyObject) {
         
         //パラメータを作成
-        var dict:Dictionary = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","maxResults":"20"]
+        var dict:Dictionary = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","maxResults":"20","videoDuration":"any"]
         
         func stringByAddingPercentEncodingForURLQueryValue(value:AnyObject) -> String? {
             let characterSet = NSMutableCharacterSet.alphanumericCharacterSet()
@@ -98,7 +98,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         
         var allurl:String = "https://www.googleapis.com/youtube/v3/search?" + param
         
-        
+        let xmlURL = "http://gdata.youtube.com/feeds/api/videos/"
         
         //urlのインスタンスを生成
         var url = NSURL(string: allurl)
