@@ -79,7 +79,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             var str:String = "\(value)"
             return str.stringByAddingPercentEncodingWithAllowedCharacters(characterSet)
         }
-        
+
         func stringFromHttpParameters( dict:Dictionary<String, AnyObject> ) -> String
         {
             let parameterArray = map(dict) { (key, value) -> String in
@@ -92,7 +92,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         }
         
         
-        println(stringFromHttpParameters(dict))
+        //println(stringFromHttpParameters(dict))
         
         var param = stringFromHttpParameters(dict)
         
@@ -107,17 +107,33 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         
         request.HTTPMethod = "GET"
         
+        //youtubeのデータを入れる用の変数を準備
+        var youtubeData:NSData?
+        
         var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {
             data, response, error in
             if (error == nil){
                 var result = NSString(data: data, encoding: NSUTF8StringEncoding)!
+                youtubeData = result.dataUsingEncoding(NSUTF8StringEncoding) //resultをnsstringからnsdataに変換して入れる
                 println(result)
             }else{
                 println(error)
             }
         })
         task.resume()
-    
+        
+        //youtubeのデータをパースする
+        var youtubeJson:NSDictionary = NSJSONSerialization.JSONObjectWithData(youtubeData!, options: NSJSONReadingOptions.AllowFragments, error: nil) as! NSDictionary
+        
+        var items:AnyObject = youtubeJson["items"]!
+        for var j=0; j<200; j++ {
+            var value: AnyObject! = items[j]
+            var videoId:String = (value["videoId"] as? String)!
+            
+            
+        }
+    }
+        
 //        //リクエストを飛ばしてjsonデータを取得
 //        var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: nil)
 //        //パースする
@@ -134,7 +150,6 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
 //        var info:String =  value11 + "\n" + value12 + "\n" + String(value13) + "\n" + String(value14) + "\n"
 //        jsonTextView.text = info
         
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
