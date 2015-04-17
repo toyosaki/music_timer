@@ -337,6 +337,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/tsuruda/project/music_timer/git/music_timer/music_timer/Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -356,6 +357,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/tsuruda/project/music_timer/git/music_timer/music_timer/Header.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -409,6 +411,7 @@
 				CE78D4311ADB638300B249AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE78D4321ADB638300B249AD /* Build configuration list for PBXNativeTarget "makeArrayFrameworkTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +420,7 @@
 				CE78D4341ADB638300B249AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

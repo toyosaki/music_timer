@@ -61,6 +61,7 @@
 		CE171A551AE1063700B375D4 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CE171A5F1AE1092500B375D4 /* libPods-HCYoutubeParser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-HCYoutubeParser.a"; path = "Pods/../build/Debug-iphoneos/libPods-HCYoutubeParser.a"; sourceTree = "<group>"; };
 		CE171A611AE1099700B375D4 /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Classes; path = Pods/HCYoutubeParser/YoutubeParser/Classes; sourceTree = "<group>"; };
+		CE171A641AE10E7400B375D4 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		CE73CE2F1AE0C95900FE448D /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		CE78D4351ADB638300B249AD /* makeArrayFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = makeArrayFramework.xcodeproj; path = makeArrayFramework/makeArrayFramework.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +133,7 @@
 			children = (
 				CE73CE2F1AE0C95900FE448D /* json.swift */,
 				866F1B311AD79FFB0056E732 /* AppDelegate.swift */,
+				CE171A641AE10E7400B375D4 /* Header.h */,
 				866F1B331AD79FFB0056E732 /* ViewController.swift */,
 				866F1B351AD79FFB0056E732 /* Main.storyboard */,
 				866F1B381AD79FFB0056E732 /* Images.xcassets */,
