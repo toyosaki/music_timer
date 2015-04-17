@@ -8,11 +8,12 @@
 
 import UIKit
 import makeArrayFramework
+import MediaPlayer
 
 
 class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
-
-    @IBOutlet weak var jsonTextView: UITextView!
+    
+    var moviePlayer:MPMoviePlayerController!
     
     var myUIPicker: UIPickerView = UIPickerView()
     
@@ -29,6 +30,16 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         
         var test1:makeArray = makeArray()
         test1.hoge()
+        
+        var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=Zbs51D2wwkc")!
+        var dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
+        self.moviePlayer = MPMoviePlayerController(contentURL: url)
+        self.moviePlayer.view.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
+        self.view.addSubview(moviePlayer.view)
+        
+        self.moviePlayer.fullscreen = true
+        self.moviePlayer.controlStyle = MPMovieControlStyle.None
+        self.moviePlayer.shouldAutoplay = true
     }
     
     //表示例
@@ -67,38 +78,61 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         }
     }
     
+    //パラメータを作成する関数
+    func stringByAddingPercentEncodingForURLQueryValue(value:AnyObject) -> String? {
+        let characterSet = NSMutableCharacterSet.alphanumericCharacterSet()
+        characterSet.addCharactersInString("-._~")
+        var str:String = "\(value)"
+        return str.stringByAddingPercentEncodingWithAllowedCharacters(characterSet)
+    }
+    func stringFromHttpParameters( dict:Dictionary<String, AnyObject> ) -> String
+    {
+        let parameterArray = map(dict) { (key, value) -> String in
+            let percentEscapedKey = self.stringByAddingPercentEncodingForURLQueryValue(key)!
+            let percentEscapedValue = self.stringByAddingPercentEncodingForURLQueryValue(value)!
+            return "\(percentEscapedKey)=\(percentEscapedValue)"
+        }
+        
+        return join("&", parameterArray)
+    }
+    //
+    func onSearchComplete(data:NSData)
+    {
+        //返値用の配列
+        var returnArray:[String] = []
+        //NSDataをNSStringにする
+        var jsonString:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+        //jsonデータをパースする
+        var result:JSON = JSON.parse(jsonString)
+        if var items:[JSON] = result["items"].asArray {
+            var len:Int = items.count
+            for var i=0; i<len; i++ {
+                var item = items[i]
+                var id = item["id"]
+                var videoId = id["videoId"]
+                returnArray.append(videoId.asString!)
+                println(videoId.toString())
+            }
+        }
+        //return returnArray
+    }
+    func onSearchFail(){
+        println("error")
+    }
+
+    func makeXMLurl(){
+        
+    }
+    
     
     @IBAction func getJsonData(sender: AnyObject) {
         
-        //パラメータを作成
-        var dict:Dictionary = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","maxResults":"20","videoDuration":"any"]
-        
-        func stringByAddingPercentEncodingForURLQueryValue(value:AnyObject) -> String? {
-            let characterSet = NSMutableCharacterSet.alphanumericCharacterSet()
-            characterSet.addCharactersInString("-._~")
-            var str:String = "\(value)"
-            return str.stringByAddingPercentEncodingWithAllowedCharacters(characterSet)
-        }
-
-        func stringFromHttpParameters( dict:Dictionary<String, AnyObject> ) -> String
-        {
-            let parameterArray = map(dict) { (key, value) -> String in
-                let percentEscapedKey = stringByAddingPercentEncodingForURLQueryValue(key)!
-                let percentEscapedValue = stringByAddingPercentEncodingForURLQueryValue(value)!
-                return "\(percentEscapedKey)=\(percentEscapedValue)"
-            }
-            
-            return join("&", parameterArray)
-        }
-        
-        
-        //println(stringFromHttpParameters(dict))
-        
+        //パラメータを作成してURLを作成 　　　順番は気にしなくていいのかな？
+        var dict:Dictionary = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"any"]
         var param = stringFromHttpParameters(dict)
-        
         var allurl:String = "https://www.googleapis.com/youtube/v3/search?" + param
         
-        let xmlURL = "http://gdata.youtube.com/feeds/api/videos/"
+        var xmlURL = "http://gdata.youtube.com/feeds/api/videos/"
         
         //urlのインスタンスを生成
         var url = NSURL(string: allurl)
@@ -106,34 +140,24 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         var request = NSMutableURLRequest(URL: url!)
         
         request.HTTPMethod = "GET"
-        
-        //youtubeのデータを入れる用の変数を準備
-        var youtubeData:NSData?
-        
+
+        //リクエストを飛ばしてjsonデータを取得
         var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {
             data, response, error in
             if (error == nil){
-                var result = NSString(data: data, encoding: NSUTF8StringEncoding)!
-                youtubeData = result.dataUsingEncoding(NSUTF8StringEncoding) //resultをnsstringからnsdataに変換して入れる
-                println(result)
+                self.onSearchComplete(data)
             }else{
-                println(error)
+                self.onSearchFail()
             }
         })
         task.resume()
         
-        //youtubeのデータをパースする
-        var youtubeJson:NSDictionary = NSJSONSerialization.JSONObjectWithData(youtubeData!, options: NSJSONReadingOptions.AllowFragments, error: nil) as! NSDictionary
-        
-        var items:AnyObject = youtubeJson["items"]!
-        for var j=0; j<200; j++ {
-            var value: AnyObject! = items[j]
-            var videoId:String = (value["videoId"] as? String)!
-            
-            
-        }
+//
+//            
+//            
+//        }
     }
-        
+    
 //        //リクエストを飛ばしてjsonデータを取得
 //        var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: nil)
 //        //パースする

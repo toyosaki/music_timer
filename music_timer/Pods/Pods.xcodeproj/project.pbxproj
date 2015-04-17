@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11B7EF1B3D8D7E6F02157BCB /* HCYoutubeParser.h in Headers */ = {isa = PBXBuildFile; fileRef = DB6413F6C190133397B5F495 /* HCYoutubeParser.h */; };
+		29F2C0239E115E9879A3CB81 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BC378072E5BC93128A1D3F /* Pods-dummy.m */; };
+		804791DEB09A872B5EA44472 /* HCYoutubeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F668D6F1AD1485463F1725B /* HCYoutubeParser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		96B1D178B2AE65EF27CA6A61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7D4A02298D53CE6016CDCA /* Foundation.framework */; };
+		BC9CAC28F5332FC0A1A00811 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7D4A02298D53CE6016CDCA /* Foundation.framework */; };
+		FBF5FF1962B1A33751ED8FC1 /* Pods-HCYoutubeParser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E809B71ECB6DCEB404C53B /* Pods-HCYoutubeParser-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		74E421DC8A8AC8B67819E1EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C665EAA080C816313E1466E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E12B4C8FAF4AB1A4317BEB7;
+			remoteInfo = "Pods-HCYoutubeParser";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		037746E3765BC6D301390936 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		097E44F47A935CCAC000BA40 /* Pods-HCYoutubeParser-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HCYoutubeParser-prefix.pch"; sourceTree = "<group>"; };
+		0CD96EAD09942E82C7B55BD5 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		46D892D03A149C8C233FB46C /* libPods-HCYoutubeParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HCYoutubeParser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		528BD2F2858FD8FA55DA6B4F /* Pods-HCYoutubeParser-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HCYoutubeParser-Private.xcconfig"; sourceTree = "<group>"; };
+		6BF1A4DB0F85C6395BDA336C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		6BF4D5C23BCF73068686A8F9 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		818F704F439A7A1EC39D85AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		92335676FE65ACB4EC8D6272 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		9F668D6F1AD1485463F1725B /* HCYoutubeParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HCYoutubeParser.m; path = YoutubeParser/Classes/HCYoutubeParser.m; sourceTree = "<group>"; };
+		A2DD66A0C4AF7279357C5AAC /* Pods-HCYoutubeParser.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HCYoutubeParser.xcconfig"; sourceTree = "<group>"; };
+		B6C6E29CA07EC7F43E5D298A /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B7D4E9121BDB5B14F1F92BCC /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		BB7D4A02298D53CE6016CDCA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C1BC378072E5BC93128A1D3F /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		D6E809B71ECB6DCEB404C53B /* Pods-HCYoutubeParser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HCYoutubeParser-dummy.m"; sourceTree = "<group>"; };
+		DB6413F6C190133397B5F495 /* HCYoutubeParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HCYoutubeParser.h; path = YoutubeParser/Classes/HCYoutubeParser.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7CA0162C626D15E972A462A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC9CAC28F5332FC0A1A00811 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C09BEB6706C4A14726AC6081 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B1D178B2AE65EF27CA6A61 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11527AC79A9DB9327CAD6200 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BB7D4A02298D53CE6016CDCA /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		1DE48389927EA96A8D8F9AFF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6C6E29CA07EC7F43E5D298A /* Pods-acknowledgements.markdown */,
+				B7D4E9121BDB5B14F1F92BCC /* Pods-acknowledgements.plist */,
+				C1BC378072E5BC93128A1D3F /* Pods-dummy.m */,
+				6BF4D5C23BCF73068686A8F9 /* Pods-environment.h */,
+				92335676FE65ACB4EC8D6272 /* Pods-resources.sh */,
+				6BF1A4DB0F85C6395BDA336C /* Pods.debug.xcconfig */,
+				037746E3765BC6D301390936 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		3A51A267F134675193C921C8 /* HCYoutubeParser */ = {
+			isa = PBXGroup;
+			children = (
+				DB6413F6C190133397B5F495 /* HCYoutubeParser.h */,
+				9F668D6F1AD1485463F1725B /* HCYoutubeParser.m */,
+				73F645240A58452720FFA6D8 /* Support Files */,
+			);
+			path = HCYoutubeParser;
+			sourceTree = "<group>";
+		};
+		615FFBE810AF27396F44C61E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				818F704F439A7A1EC39D85AC /* libPods.a */,
+				46D892D03A149C8C233FB46C /* libPods-HCYoutubeParser.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		73F645240A58452720FFA6D8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2DD66A0C4AF7279357C5AAC /* Pods-HCYoutubeParser.xcconfig */,
+				528BD2F2858FD8FA55DA6B4F /* Pods-HCYoutubeParser-Private.xcconfig */,
+				D6E809B71ECB6DCEB404C53B /* Pods-HCYoutubeParser-dummy.m */,
+				097E44F47A935CCAC000BA40 /* Pods-HCYoutubeParser-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-HCYoutubeParser";
+			sourceTree = "<group>";
+		};
+		7402D98A2390854B5C6597B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A51A267F134675193C921C8 /* HCYoutubeParser */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BDFD700BFAAA1C0ED6BFE06D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11527AC79A9DB9327CAD6200 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDC2DFC6D80C5C924216316D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DE48389927EA96A8D8F9AFF /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		FF0832E70F1226F388DD2A58 = {
+			isa = PBXGroup;
+			children = (
+				0CD96EAD09942E82C7B55BD5 /* Podfile */,
+				BDFD700BFAAA1C0ED6BFE06D /* Frameworks */,
+				7402D98A2390854B5C6597B4 /* Pods */,
+				615FFBE810AF27396F44C61E /* Products */,
+				EDC2DFC6D80C5C924216316D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		19B02E7E2A738055373710A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B7EF1B3D8D7E6F02157BCB /* HCYoutubeParser.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0E12B4C8FAF4AB1A4317BEB7 /* Pods-HCYoutubeParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E89B352D1CF66751337546FE /* Build configuration list for PBXNativeTarget "Pods-HCYoutubeParser" */;
+			buildPhases = (
+				1D621824EFFBB27C8CFB9C03 /* Sources */,
+				7CA0162C626D15E972A462A2 /* Frameworks */,
+				19B02E7E2A738055373710A2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-HCYoutubeParser";
+			productName = "Pods-HCYoutubeParser";
+			productReference = 46D892D03A149C8C233FB46C /* libPods-HCYoutubeParser.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		8FB2F13E5CF88C7C30157666 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2C7B9FE2D45F90FB2791507 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				999902A7139D27D498AF3755 /* Sources */,
+				C09BEB6706C4A14726AC6081 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5252E6EF1FD57C9D89FE15F /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 818F704F439A7A1EC39D85AC /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C665EAA080C816313E1466E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = E646A8CAD9525B41E078BDBD /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FF0832E70F1226F388DD2A58;
+			productRefGroup = 615FFBE810AF27396F44C61E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FB2F13E5CF88C7C30157666 /* Pods */,
+				0E12B4C8FAF4AB1A4317BEB7 /* Pods-HCYoutubeParser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D621824EFFBB27C8CFB9C03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				804791DEB09A872B5EA44472 /* HCYoutubeParser.m in Sources */,
+				FBF5FF1962B1A33751ED8FC1 /* Pods-HCYoutubeParser-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		999902A7139D27D498AF3755 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29F2C0239E115E9879A3CB81 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5252E6EF1FD57C9D89FE15F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-HCYoutubeParser";
+			target = 0E12B4C8FAF4AB1A4317BEB7 /* Pods-HCYoutubeParser */;
+			targetProxy = 74E421DC8A8AC8B67819E1EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		51321DDED7522FDBAC7CE184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BF1A4DB0F85C6395BDA336C /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8CF71E47711C44B26300AD7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 528BD2F2858FD8FA55DA6B4F /* Pods-HCYoutubeParser-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-HCYoutubeParser/Pods-HCYoutubeParser-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		985F9B8F10B098166A545315 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		99072FC9BEF9B6872C188119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 528BD2F2858FD8FA55DA6B4F /* Pods-HCYoutubeParser-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-HCYoutubeParser/Pods-HCYoutubeParser-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A3187E96F09944E7F4189A3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		CB59B6D1522494350578EBCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 037746E3765BC6D301390936 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2C7B9FE2D45F90FB2791507 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51321DDED7522FDBAC7CE184 /* Debug */,
+				CB59B6D1522494350578EBCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E646A8CAD9525B41E078BDBD /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3187E96F09944E7F4189A3E /* Debug */,
+				985F9B8F10B098166A545315 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E89B352D1CF66751337546FE /* Build configuration list for PBXNativeTarget "Pods-HCYoutubeParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CF71E47711C44B26300AD7B /* Debug */,
+				99072FC9BEF9B6872C188119 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C665EAA080C816313E1466E /* Project object */;
+}
