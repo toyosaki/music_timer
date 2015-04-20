@@ -5,6 +5,6 @@
       location = "group:music_timer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../../.Trash/Pods.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

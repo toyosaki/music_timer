@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B4D8A920B617E622DBD86E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E288639D75A88537B0AD68 /* libPods.a */; };
-		862953981AE1FDFB00E14C2B /* makeArrayFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8629538A1AE1FCE300E14C2B /* makeArrayFramework.framework */; };
 		866F1B321AD79FFB0056E732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F1B311AD79FFB0056E732 /* AppDelegate.swift */; };
 		866F1B341AD79FFB0056E732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F1B331AD79FFB0056E732 /* ViewController.swift */; };
 		866F1B371AD79FFB0056E732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866F1B351AD79FFB0056E732 /* Main.storyboard */; };
@@ -18,37 +17,10 @@
 		CE171A561AE1063700B375D4 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE171A551AE1063700B375D4 /* Podfile */; };
 		CE171A601AE1092500B375D4 /* libPods-HCYoutubeParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE171A5F1AE1092500B375D4 /* libPods-HCYoutubeParser.a */; };
 		CE73CE301AE0C95900FE448D /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73CE2F1AE0C95900FE448D /* json.swift */; };
+		CE78D4451ADB6B3600B249AD /* makeArrayFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78D43B1ADB638400B249AD /* makeArrayFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		862953891AE1FCE300E14C2B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE78D4351ADB638300B249AD /* makeArrayFramework.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CE78D4191ADB638300B249AD;
-			remoteInfo = makeArrayFramework;
-		};
-		8629538B1AE1FCE300E14C2B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE78D4351ADB638300B249AD /* makeArrayFramework.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CE78D4241ADB638300B249AD;
-			remoteInfo = makeArrayFrameworkTests;
-		};
-		862953A21AE1FE8800E14C2B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8629539D1AE1FE8800E14C2B /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 80DC82C04D142CAA0A4A35A4;
-			remoteInfo = Pods;
-		};
-		862953A41AE1FE8800E14C2B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8629539D1AE1FE8800E14C2B /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 70E5C816E00430586EDA6420;
-			remoteInfo = "Pods-HCYoutubeParser";
-		};
 		866F1B421AD79FFB0056E732 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 866F1B241AD79FFB0056E732 /* Project object */;
@@ -56,13 +28,24 @@
 			remoteGlobalIDString = 866F1B2B1AD79FFB0056E732;
 			remoteInfo = music_timer;
 		};
+		CE78D43A1ADB638400B249AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE78D4351ADB638300B249AD /* makeArrayFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CE78D4191ADB638300B249AD;
+			remoteInfo = makeArrayFramework;
+		};
+		CE78D43C1ADB638400B249AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE78D4351ADB638300B249AD /* makeArrayFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CE78D4241ADB638300B249AD;
+			remoteInfo = makeArrayFrameworkTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		36E288639D75A88537B0AD68 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		862953991AE1FE4200E14C2B /* libDHCPServer.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libDHCPServer.A.dylib; path = usr/lib/libDHCPServer.A.dylib; sourceTree = SDKROOT; };
-		8629539B1AE1FE4900E14C2B /* libDHCPServer.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libDHCPServer.dylib; path = usr/lib/libDHCPServer.dylib; sourceTree = SDKROOT; };
-		8629539D1AE1FE8800E14C2B /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../../../../.Trash/Pods.xcodeproj; sourceTree = "<group>"; };
 		866F1B2C1AD79FFB0056E732 /* music_timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = music_timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		866F1B301AD79FFB0056E732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866F1B311AD79FFB0056E732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,8 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				862953981AE1FDFB00E14C2B /* makeArrayFramework.framework in Frameworks */,
 				CE171A601AE1092500B375D4 /* libPods-HCYoutubeParser.a in Frameworks */,
+				CE78D4451ADB6B3600B249AD /* makeArrayFramework.framework in Frameworks */,
 				0B4D8A920B617E622DBD86E8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,32 +99,11 @@
 		557EE99C4ABD7C9A24A8DE98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8629539D1AE1FE8800E14C2B /* Pods.xcodeproj */,
-				8629539B1AE1FE4900E14C2B /* libDHCPServer.dylib */,
-				862953991AE1FE4200E14C2B /* libDHCPServer.A.dylib */,
 				CE171A611AE1099700B375D4 /* Classes */,
 				CE171A5F1AE1092500B375D4 /* libPods-HCYoutubeParser.a */,
 				36E288639D75A88537B0AD68 /* libPods.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		862953851AE1FCE300E14C2B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8629538A1AE1FCE300E14C2B /* makeArrayFramework.framework */,
-				8629538C1AE1FCE300E14C2B /* makeArrayFrameworkTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8629539E1AE1FE8800E14C2B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				862953A31AE1FE8800E14C2B /* libPods.a */,
-				862953A51AE1FE8800E14C2B /* libPods-HCYoutubeParser.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		866F1B231AD79FFB0056E732 = {
@@ -204,6 +166,15 @@
 				866F1B461AD79FFB0056E732 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE78D4361ADB638300B249AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE78D43B1ADB638400B249AD /* makeArrayFramework.framework */,
+				CE78D43D1ADB638400B249AD /* makeArrayFrameworkTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,12 +248,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 862953851AE1FCE300E14C2B /* Products */;
+					ProductGroup = CE78D4361ADB638300B249AD /* Products */;
 					ProjectRef = CE78D4351ADB638300B249AD /* makeArrayFramework.xcodeproj */;
-				},
-				{
-					ProductGroup = 8629539E1AE1FE8800E14C2B /* Products */;
-					ProjectRef = 8629539D1AE1FE8800E14C2B /* Pods.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -294,32 +261,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8629538A1AE1FCE300E14C2B /* makeArrayFramework.framework */ = {
+		CE78D43B1ADB638400B249AD /* makeArrayFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = makeArrayFramework.framework;
-			remoteRef = 862953891AE1FCE300E14C2B /* PBXContainerItemProxy */;
+			remoteRef = CE78D43A1ADB638400B249AD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8629538C1AE1FCE300E14C2B /* makeArrayFrameworkTests.xctest */ = {
+		CE78D43D1ADB638400B249AD /* makeArrayFrameworkTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = makeArrayFrameworkTests.xctest;
-			remoteRef = 8629538B1AE1FCE300E14C2B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		862953A31AE1FE8800E14C2B /* libPods.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPods.a;
-			remoteRef = 862953A21AE1FE8800E14C2B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		862953A51AE1FE8800E14C2B /* libPods-HCYoutubeParser.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-HCYoutubeParser.a";
-			remoteRef = 862953A41AE1FE8800E14C2B /* PBXContainerItemProxy */;
+			remoteRef = CE78D43C1ADB638400B249AD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
