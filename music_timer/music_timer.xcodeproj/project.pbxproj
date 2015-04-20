@@ -18,6 +18,7 @@
 		86E182DD1AE2A84A00117713 /* makeArrayFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78D43B1ADB638400B249AD /* makeArrayFramework.framework */; };
 		CE171A561AE1063700B375D4 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE171A551AE1063700B375D4 /* Podfile */; };
 		CE171A601AE1092500B375D4 /* libPods-HCYoutubeParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE171A5F1AE1092500B375D4 /* libPods-HCYoutubeParser.a */; };
+		CE30E92D1AE4AEA30005E73A /* dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E92C1AE4AEA30005E73A /* dummy.m */; };
 		CE73CE301AE0C95900FE448D /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73CE2F1AE0C95900FE448D /* json.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,13 +58,14 @@
 		866F1B411AD79FFB0056E732 /* music_timerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = music_timerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		866F1B461AD79FFB0056E732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866F1B471AD79FFB0056E732 /* music_timerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_timerTests.swift; sourceTree = "<group>"; };
-		86E182D81AE2A63F00117713 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		86E182DB1AE2A83800117713 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AA7C4C2A177C75A9462385ED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B414498B8ECBA5694757FBD8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CE171A551AE1063700B375D4 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CE171A5F1AE1092500B375D4 /* libPods-HCYoutubeParser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-HCYoutubeParser.a"; path = "Pods/../build/Debug-iphoneos/libPods-HCYoutubeParser.a"; sourceTree = "<group>"; };
 		CE171A611AE1099700B375D4 /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Classes; path = Pods/HCYoutubeParser/YoutubeParser/Classes; sourceTree = "<group>"; };
+		CE30E92B1AE4AEA30005E73A /* music_timer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "music_timer-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE30E92C1AE4AEA30005E73A /* dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dummy.m; sourceTree = "<group>"; };
 		CE73CE2F1AE0C95900FE448D /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		CE78D4351ADB638300B249AD /* makeArrayFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = makeArrayFramework.xcodeproj; path = makeArrayFramework/makeArrayFramework.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,10 +137,11 @@
 		866F1B2E1AD79FFB0056E732 /* music_timer */ = {
 			isa = PBXGroup;
 			children = (
-				86E182D81AE2A63F00117713 /* Header.h */,
 				CE73CE2F1AE0C95900FE448D /* json.swift */,
 				866F1B311AD79FFB0056E732 /* AppDelegate.swift */,
+				CE30E92C1AE4AEA30005E73A /* dummy.m */,
 				866F1B331AD79FFB0056E732 /* ViewController.swift */,
+				CE30E92B1AE4AEA30005E73A /* music_timer-Bridging-Header.h */,
 				866F1B351AD79FFB0056E732 /* Main.storyboard */,
 				866F1B381AD79FFB0056E732 /* Images.xcassets */,
 				866F1B3A1AD79FFB0056E732 /* LaunchScreen.xib */,
@@ -342,6 +345,7 @@
 			files = (
 				866F1B341AD79FFB0056E732 /* ViewController.swift in Sources */,
 				866F1B321AD79FFB0056E732 /* AppDelegate.swift in Sources */,
+				CE30E92D1AE4AEA30005E73A /* dummy.m in Sources */,
 				CE73CE301AE0C95900FE448D /* json.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +471,9 @@
 			baseConfigurationReference = AA7C4C2A177C75A9462385ED /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = music_timer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -475,6 +482,8 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "music_timer/music_timer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -483,6 +492,9 @@
 			baseConfigurationReference = B414498B8ECBA5694757FBD8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = music_timer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -491,6 +503,8 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "music_timer/music_timer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};

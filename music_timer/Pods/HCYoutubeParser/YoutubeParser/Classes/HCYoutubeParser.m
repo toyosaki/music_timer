@@ -207,12 +207,12 @@
     }
 }
 
-+ (void)thumbnailForYoutubeURL:(NSURL *)youtubeURL
-                 thumbnailSize:(YouTubeThumbnail)thumbnailSize
-                 completeBlock:(void(^)(UIImage *image, NSError *error))completeBlock {
-    NSString *youtubeID = [self youtubeIDFromYoutubeURL:youtubeURL];
-    return [self thumbnailForYoutubeID:youtubeID thumbnailSize:thumbnailSize completeBlock:completeBlock];
-}
+//+ (void)thumbnailForYoutubeURL:(NSURL *)youtubeURL
+//                 thumbnailSize:(YouTubeThumbnail)thumbnailSize
+//                 completeBlock:(void(^)(UIImage *image, NSError *error))completeBlock {
+//    NSString *youtubeID = [self youtubeIDFromYoutubeURL:youtubeURL];
+//    return [self thumbnailForYoutubeID:youtubeID thumbnailSize:thumbnailSize completeBlock:completeBlock];
+//}
 
 + (NSURL *)thumbnailUrlForYoutubeURL:(NSURL *)youtubeURL
                        thumbnailSize:(YouTubeThumbnail)thumbnailSize{
@@ -244,49 +244,49 @@
     return  url;
 }
 
-+ (void)thumbnailForYoutubeID:(NSString *)youtubeID thumbnailSize:(YouTubeThumbnail)thumbnailSize completeBlock:(void (^)(UIImage *, NSError *))completeBlock {
-    if (youtubeID) {
-        NSString *thumbnailSizeString = nil;
-        switch (thumbnailSize) {
-            case YouTubeThumbnailDefault:
-                thumbnailSizeString = @"default";
-                break;
-            case YouTubeThumbnailDefaultMedium:
-                thumbnailSizeString = @"mqdefault";
-                break;
-            case YouTubeThumbnailDefaultHighQuality:
-                thumbnailSizeString = @"hqdefault";
-                break;
-            case YouTubeThumbnailDefaultMaxQuality:
-                thumbnailSizeString = @"maxresdefault";
-                break;
-            default:
-                thumbnailSizeString = @"default";
-                break;
-        }
-
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:kYoutubeThumbnailURL, youtubeID, thumbnailSizeString]];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        [request setValue:kUserAgent forHTTPHeaderField:@"User-Agent"];
-        [request setHTTPMethod:@"GET"];
-
-        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-            if (!error) {
-                UIImage *image = [UIImage imageWithData:data];
-                completeBlock(image, nil);
-            }
-            else {
-                completeBlock(nil, error);
-            }
-        }];
-    }
-    else {
-        NSDictionary *details = @{ NSLocalizedDescriptionKey : @"Could not find a valid Youtube ID" };
-        NSError *error = [NSError errorWithDomain:@"com.hiddencode.yt-parser" code:0 userInfo:details];
-        completeBlock(nil, error);
-    }
-}
+//+ (void)thumbnailForYoutubeID:(NSString *)youtubeID thumbnailSize:(YouTubeThumbnail)thumbnailSize completeBlock:(void (^)(UIImage *, NSError *))completeBlock {
+//    if (youtubeID) {
+//        NSString *thumbnailSizeString = nil;
+//        switch (thumbnailSize) {
+//            case YouTubeThumbnailDefault:
+//                thumbnailSizeString = @"default";
+//                break;
+//            case YouTubeThumbnailDefaultMedium:
+//                thumbnailSizeString = @"mqdefault";
+//                break;
+//            case YouTubeThumbnailDefaultHighQuality:
+//                thumbnailSizeString = @"hqdefault";
+//                break;
+//            case YouTubeThumbnailDefaultMaxQuality:
+//                thumbnailSizeString = @"maxresdefault";
+//                break;
+//            default:
+//                thumbnailSizeString = @"default";
+//                break;
+//        }
+//
+//        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:kYoutubeThumbnailURL, youtubeID, thumbnailSizeString]];
+//        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//        [request setValue:kUserAgent forHTTPHeaderField:@"User-Agent"];
+//        [request setHTTPMethod:@"GET"];
+//
+//        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+//            if (!error) {
+//                UIImage *image = [UIImage imageWithData:data];
+//                completeBlock(image, nil);
+//            }
+//            else {
+//                completeBlock(nil, error);
+//            }
+//        }];
+//    }
+//    else {
+//        NSDictionary *details = @{ NSLocalizedDescriptionKey : @"Could not find a valid Youtube ID" };
+//        NSError *error = [NSError errorWithDomain:@"com.hiddencode.yt-parser" code:0 userInfo:details];
+//        completeBlock(nil, error);
+//    }
+//}
 
 + (void)detailsForYouTubeURL:(NSURL *)youtubeURL
                completeBlock:(void(^)(NSDictionary *details, NSError *error))completeBlock {

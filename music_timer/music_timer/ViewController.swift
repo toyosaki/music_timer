@@ -23,7 +23,11 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        myUIPicker.frame = CGRectMake(0,0,view.bounds.width,250.0)
+        
+        //画面サイズを取得
+        let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
+        
+        myUIPicker.frame = CGRectMake(0,myBoundSize.height/20,view.bounds.width,myBoundSize.height/4)
         myUIPicker.delegate = self
         myUIPicker.dataSource = self
         self.view.addSubview(myUIPicker)
@@ -31,14 +35,16 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         var test1:makeArray = makeArray()
         test1.hoge()
 
+        //YouTubeの動画再生
         var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=Zbs51D2wwkc")!
         var dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
-        self.moviePlayer = MPMoviePlayerController(contentURL: url)
-        self.moviePlayer.view.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
+        var url2 = NSURL(string: dict["medium"] as! String)
+        self.moviePlayer = MPMoviePlayerController(contentURL: url2)
+        self.moviePlayer.view.frame = CGRect(x:0, y:myBoundSize.height/2, width:self.view.frame.width, height:myBoundSize.height/2)
         self.view.addSubview(moviePlayer.view)
         
         self.moviePlayer.fullscreen = true
-        self.moviePlayer.controlStyle = MPMovieControlStyle.None
+        self.moviePlayer.controlStyle = MPMovieControlStyle.Embedded
         self.moviePlayer.shouldAutoplay = true
     }
     
@@ -127,7 +133,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     @IBAction func getJsonData(sender: AnyObject) {
         
-        //パラメータを作成してURLを作成 　　　順番は気にしなくていいのかな？
+        //パラメータを作成してURLを作成
         var dict:Dictionary = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"any"]
         var param = stringFromHttpParameters(dict)
         var allurl:String = "https://www.googleapis.com/youtube/v3/search?" + param

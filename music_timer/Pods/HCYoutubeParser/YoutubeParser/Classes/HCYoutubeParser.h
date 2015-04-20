@@ -88,9 +88,9 @@ typedef enum {
  @param thumbnailSize the wanted size of the thumbnail
  @param completeBlock the block which is called on completion
  */
-+ (void)thumbnailForYoutubeURL:(NSURL *)youtubeURL
-                 thumbnailSize:(YouTubeThumbnail)thumbnailSize
-                 completeBlock:(void(^)(UIImage *image, NSError *error))completeBlock;
+//+ (void)thumbnailForYoutubeURL:(NSURL *)youtubeURL
+//                 thumbnailSize:(YouTubeThumbnail)thumbnailSize
+//                 completeBlock:(void(^)(UIImage *image, NSError *error))completeBlock;
 
 /**
  Method for retreiving a thumbnail for wanted youtube id
@@ -99,9 +99,9 @@ typedef enum {
  @param thumbnailSize the wanted size of the thumbnail
  @param completeBlock the block which is called on completion
  */
-+ (void)thumbnailForYoutubeID:(NSString *)youtubeID
-                thumbnailSize:(YouTubeThumbnail)thumbnailSize
-                completeBlock:(void(^)(UIImage *image, NSError *error))completeBlock;
+//+ (void)thumbnailForYoutubeID:(NSString *)youtubeID
+//                thumbnailSize:(YouTubeThumbnail)thumbnailSize
+//                completeBlock:(void(^)(UIImage *image, NSError *error))completeBlock;
 
 
 /**
