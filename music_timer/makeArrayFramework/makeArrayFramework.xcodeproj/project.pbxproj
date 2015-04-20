@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86E182DA1AE2A81200117713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E182D91AE2A81200117713 /* Foundation.framework */; };
 		CE78D41F1ADB638300B249AD /* makeArrayFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CE78D41E1ADB638300B249AD /* makeArrayFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE78D4251ADB638300B249AD /* makeArrayFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE78D4191ADB638300B249AD /* makeArrayFramework.framework */; };
 		CE78D42C1ADB638300B249AD /* makeArrayFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78D42B1ADB638300B249AD /* makeArrayFrameworkTests.m */; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		86E182D91AE2A81200117713 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE78D4191ADB638300B249AD /* makeArrayFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = makeArrayFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE78D41D1ADB638300B249AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE78D41E1ADB638300B249AD /* makeArrayFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = makeArrayFramework.h; sourceTree = "<group>"; };
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E182DA1AE2A81200117713 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +58,7 @@
 		CE78D40F1ADB638300B249AD = {
 			isa = PBXGroup;
 			children = (
+				86E182D91AE2A81200117713 /* Foundation.framework */,
 				CE78D41B1ADB638300B249AD /* makeArrayFramework */,
 				CE78D4281ADB638300B249AD /* makeArrayFrameworkTests */,
 				CE78D41A1ADB638300B249AD /* Products */,

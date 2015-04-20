@@ -30,7 +30,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         
         var test1:makeArray = makeArray()
         test1.hoge()
-    
+
         var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=Zbs51D2wwkc")!
         var dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
         self.moviePlayer = MPMoviePlayerController(contentURL: url)
