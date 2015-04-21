@@ -101,8 +101,8 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         
         return join("&", parameterArray)
     }
-    //
-    func onSearchComplete(data:NSData)
+    //dataをパースしてvideoIDを取得する
+    func onSearchComplete(data:NSData) -> [String]
     {
         //返値用の配列
         var returnArray:[String] = []
@@ -120,14 +120,25 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 println(videoId.toString())
             }
         }
-        //return returnArray
+        return returnArray
     }
     func onSearchFail(){
         println("error")
     }
-
-    func makeXMLurl(){
-        
+//
+//    func makeXMLurl(){
+//        
+//    }
+    //durationを取得するurlを作る
+    func makeparamertar(videoid:String) -> String {
+        var dict:Dictionary = ["part":"contentDetails","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","id":"\(videoid)"]
+        var param = stringFromHttpParameters(dict)
+        var allurl:String = "https://www.googleapis.com/youtube/v3/videos?" + param
+        return allurl
+    }
+    
+    func onSearchDuration(durationData:NSData) {
+        println(durationData)
     }
     
     
@@ -144,14 +155,41 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         var url = NSURL(string: allurl)
         //リクエストを生成
         var request = NSMutableURLRequest(URL: url!)
-        
         request.HTTPMethod = "GET"
 
-        //リクエストを飛ばしてjsonデータを取得
+        //リクエストを飛ばしてjsonデータを取得  非同期処理
         var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {
             data, response, error in
             if (error == nil){
-                self.onSearchComplete(data)
+                var videoid:[String] = self.onSearchComplete(data)
+                //得られた動画の長さを取得
+                for var j=0; j<50; j++ {
+                    var durationAllURL:String = self.makeparamertar(videoid[j])
+                    
+                    
+                    
+                    //durations取得のurlのインスタンスを作成
+                    var durationURL = NSURL(string: durationAllURL)
+                    //durations取得のリクエストを作成
+                    var durationRequest = NSMutableURLRequest(URL: durationURL!)
+                    durationRequest.HTTPMethod = "GET"
+                    
+                    var durationtask = NSURLSession.sharedSession().dataTaskWithRequest(durationRequest, completionHandler: {
+                        durationData, response, error in
+                        if (error == nil){
+                            
+                            println("1")
+                            
+                            self.onSearchDuration(durationData)
+                            
+                        }else{
+                            
+                        }
+                    })
+                    
+                    
+                    
+                }
             }else{
                 self.onSearchFail()
             }
