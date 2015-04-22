@@ -42,8 +42,12 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         var test1:makeArray = makeArray()
         test1.hoge()
 
+        self.youtubeLoad("KV-FJ7k_3pY")
+    }
+    func youtubeLoad(videoId:String){
+        let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
         //YouTubeの動画再生
-        var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=KV-FJ7k_3pY")!
+        var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=\(videoId)")!
         var dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
         var url2 = NSURL(string: dict["medium"] as! String)
         self.moviePlayer = MPMoviePlayerController(contentURL: url2)
