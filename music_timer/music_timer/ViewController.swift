@@ -20,6 +20,13 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     var minArray:NSArray = makeArray.make();
     var secArray:NSArray = makeArray.make();
     
+    var min:String = ""
+    var sec:String = ""
+    
+    var checker:Bool = true
+    
+    var pageNumber:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,7 +43,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         test1.hoge()
 
         //YouTubeの動画再生
-        var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=Zbs51D2wwkc")!
+        var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=KV-FJ7k_3pY")!
         var dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
         var url2 = NSURL(string: dict["medium"] as! String)
         self.moviePlayer = MPMoviePlayerController(contentURL: url2)
@@ -76,9 +83,15 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     //選択時
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(component == 0){
+            min = minArray[row].description
+            self.pageNumber = 0
+            self.checker = true
             println("列\(row)")
             println("値\(minArray[row])")
         }else if(component == 1){
+            sec = secArray[row].description
+            self.pageNumber = 0
+            self.checker = true
             println("列\(row)")
             println("値\(secArray[row])")
         }
@@ -117,13 +130,22 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 var id = item["id"]
                 var videoId = id["videoId"]
                 returnArray.append(videoId.asString!)
-                println(videoId.toString())
+//                println(videoId.toString())
             }
         }
         return returnArray
     }
     func onSearchFail(){
         println("error")
+    }
+    //dataをパースしてvideoTokenを取得
+    func onSearchVideoToken(data:NSData) -> String{
+        //NSDataをNSStringにする
+        var jsonString:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+        //jsonデータをパースする
+        var result:JSON = JSON.parse(jsonString)
+        var nextPageToken:JSON = result["nextPageToken"]
+        return nextPageToken.asString!
     }
 
     //durationを取得するurlを作る
@@ -134,17 +156,27 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         return allurl
     }
     //durationDataの取得
-    func getDurationData(durationAllURL:String){
+    func getDurationData(durationAllURL:String) {
         //durations取得のurlのインスタンスを作成
         var durationURL = NSURL(string: durationAllURL)
         //durations取得のリクエストを作成
         var durationRequest = NSMutableURLRequest(URL: durationURL!)
         durationRequest.HTTPMethod = "GET"
-
+        var duration:String = ""
         var durationtask = NSURLSession.sharedSession().dataTaskWithRequest(durationRequest, completionHandler: {
             durationData, response, error in
             if (error == nil){
-                self.onParseDuration(durationData)
+                duration = self.onParseDuration(durationData)  //パースする
+                //欲しい長さの動画が見つかった時はcheckerをfalseにする
+                if duration == "PT\(self.min)M\(self.sec)S" {
+                    self.checker = false
+                }else if duration == "PT\(self.min)M" {
+                    self.checker = false
+                }else if  duration == "PT\(self.sec)S" {
+                    self.checker = false
+                }
+//                println(duration)
+//                println("\(self.min) : \(self.sec)")
                 
             }else{
                 println("error")
@@ -153,51 +185,67 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             durationtask.resume()
     }
     //durationDataを取得してdurationを取得
-    func onParseDuration(durationData:NSData) {
+    func onParseDuration(durationData:NSData) -> String {
         var durationString:String = NSString(data:durationData, encoding:NSUTF8StringEncoding) as! String
+        var duration:String = ""
         var result:JSON = JSON.parse(durationString)
         if var items:[JSON] = result["items"].asArray {
             var item = items[0]
             var contentDetails = item["contentDetails"]
-            var duration = contentDetails["duration"]
-            println(duration)
+            duration = contentDetails["duration"].asString!
         }
+        return duration
     }
     
     
     @IBAction func getJsonData(sender: AnyObject) {
-        
-        //パラメータを作成してURLを作成
-        var dict:Dictionary = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"short"]
-        var param = stringFromHttpParameters(dict)
-        var allurl:String = "https://www.googleapis.com/youtube/v3/search?" + param
-        
-//        var xmlURL = "http://gdata.youtube.com/feeds/api/videos/"
-        
-        //urlのインスタンスを生成
-        var url = NSURL(string: allurl)
-        //リクエストを生成
-        var request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "GET"
-
-        //リクエストを飛ばしてjsonデータを取得  非同期処理
-        var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {
-            data, response, error in
-            if (error == nil){
-                var videoid:[String] = self.onSearchComplete(data)
-                //得られた動画の長さを取得
-                var durationAllURL:[String] = []
-                for var j=0; j<50; j++ {
-                    var durationAllURL:String = self.makeParamertar(videoid[j])
-                    self.getDurationData(durationAllURL)
-                }
+        for_a : for var i=0 ; i<5 ; i++ {
+            var nextPageToken:String = ""
+            //パラメータを作成してURLを作成
+            var dict:Dictionary = [String:String]()
+            if pageNumber == 0 {
+                dict = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"medium"]
             }else{
-                self.onSearchFail()
+                dict = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"medium","pageToken":"\(nextPageToken)"]
             }
-        })
-        task.resume()
+            var param = stringFromHttpParameters(dict)
+            var allurl:String = "https://www.googleapis.com/youtube/v3/search?" + param
+        
+            //urlのインスタンスを生成
+            var url = NSURL(string: allurl)
+            //リクエストを生成
+            var request = NSMutableURLRequest(URL: url!)
+            request.HTTPMethod = "GET"
+        
+            //リクエストを飛ばしてjsonデータを取得  非同期処理
+            var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {
+                data, response, error in
+                if (error == nil){
+                    var videoid:[String] = self.onSearchComplete(data)
+                    nextPageToken = self.onSearchVideoToken(data)
+                    //得られた動画の長さを取得
+                    var durationAllURL:[String] = []
+                    var len = videoid.count
+                    for_b : for var j=0; j<len; j++ {
+                        var durationAllURL:String = self.makeParamertar(videoid[j])
+                        self.getDurationData(durationAllURL)
+                        if self.checker == false {
+                            println("動画が見つかりました")
+                            
+                            break for_b
+                        }
+                    }
+                    self.pageNumber++   //ページを変える
+                }else{
+                    self.onSearchFail()
+                }
+            })
+            task.resume()
+            if self.checker == false{
+                break for_a
+            }
+        }
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
