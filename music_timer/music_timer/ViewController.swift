@@ -134,34 +134,37 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         return allurl
     }
     //durationDataの取得
-    func getDurationData(durationAllURL:String){
+    func getDurationData(durationAllURL:String) -> String {
         //durations取得のurlのインスタンスを作成
         var durationURL = NSURL(string: durationAllURL)
         //durations取得のリクエストを作成
         var durationRequest = NSMutableURLRequest(URL: durationURL!)
         durationRequest.HTTPMethod = "GET"
 
+        var duration:String = ""
         var durationtask = NSURLSession.sharedSession().dataTaskWithRequest(durationRequest, completionHandler: {
             durationData, response, error in
             if (error == nil){
-                self.onParseDuration(durationData)
-                
+                duration = self.onParseDuration(durationData)
             }else{
                 println("error")
             }
         })
-            durationtask.resume()
+        durationtask.resume()
+        
+        return duration
     }
-    //durationDataを取得してdurationを取得
-    func onParseDuration(durationData:NSData) {
+    //durationDataをパースしてdurationを取得
+    func onParseDuration(durationData:NSData)  -> String{
         var durationString:String = NSString(data:durationData, encoding:NSUTF8StringEncoding) as! String
         var result:JSON = JSON.parse(durationString)
+        var duration:String = ""
         if var items:[JSON] = result["items"].asArray {
             var item = items[0]
             var contentDetails = item["contentDetails"]
-            var duration = contentDetails["duration"]
-            println(duration)
+            duration = contentDetails["duration"].asString!
         }
+        return duration
     }
     
     
@@ -187,9 +190,11 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
                 var videoid:[String] = self.onSearchComplete(data)
                 //得られた動画の長さを取得
                 var durationAllURL:[String] = []
-                for var j=0; j<50; j++ {
+                var len = durationAllURL.count
+                for var j=0; j<len; j++ {
                     var durationAllURL:String = self.makeParamertar(videoid[j])
-                    self.getDurationData(durationAllURL)
+                    var duration:String = self.getDurationData(durationAllURL)
+                    println()
                 }
             }else{
                 self.onSearchFail()
