@@ -125,31 +125,54 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     func onSearchFail(){
         println("error")
     }
-//
-//    func makeXMLurl(){
-//        
-//    }
+
     //durationを取得するurlを作る
-    func makeparamertar(videoid:String) -> String {
+    func makeParamertar(videoid:String) -> String {
         var dict:Dictionary = ["part":"contentDetails","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","id":"\(videoid)"]
         var param = stringFromHttpParameters(dict)
         var allurl:String = "https://www.googleapis.com/youtube/v3/videos?" + param
         return allurl
     }
-    
-    func onSearchDuration(durationData:NSData) {
-        println(durationData)
+    //durationDataの取得
+    func getDurationData(durationAllURL:String){
+        //durations取得のurlのインスタンスを作成
+        var durationURL = NSURL(string: durationAllURL)
+        //durations取得のリクエストを作成
+        var durationRequest = NSMutableURLRequest(URL: durationURL!)
+        durationRequest.HTTPMethod = "GET"
+
+        var durationtask = NSURLSession.sharedSession().dataTaskWithRequest(durationRequest, completionHandler: {
+            durationData, response, error in
+            if (error == nil){
+                self.onParseDuration(durationData)
+                
+            }else{
+                println("error")
+            }
+        })
+            durationtask.resume()
+    }
+    //durationDataを取得してdurationを取得
+    func onParseDuration(durationData:NSData) {
+        var durationString:String = NSString(data:durationData, encoding:NSUTF8StringEncoding) as! String
+        var result:JSON = JSON.parse(durationString)
+        if var items:[JSON] = result["items"].asArray {
+            var item = items[0]
+            var contentDetails = item["contentDetails"]
+            var duration = contentDetails["duration"]
+            println(duration)
+        }
     }
     
     
     @IBAction func getJsonData(sender: AnyObject) {
         
         //パラメータを作成してURLを作成
-        var dict:Dictionary = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"any"]
+        var dict:Dictionary = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"short"]
         var param = stringFromHttpParameters(dict)
         var allurl:String = "https://www.googleapis.com/youtube/v3/search?" + param
         
-        var xmlURL = "http://gdata.youtube.com/feeds/api/videos/"
+//        var xmlURL = "http://gdata.youtube.com/feeds/api/videos/"
         
         //urlのインスタンスを生成
         var url = NSURL(string: allurl)
@@ -163,61 +186,17 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             if (error == nil){
                 var videoid:[String] = self.onSearchComplete(data)
                 //得られた動画の長さを取得
+                var durationAllURL:[String] = []
                 for var j=0; j<50; j++ {
-                    var durationAllURL:String = self.makeparamertar(videoid[j])
-                    
-                    
-                    
-                    //durations取得のurlのインスタンスを作成
-                    var durationURL = NSURL(string: durationAllURL)
-                    //durations取得のリクエストを作成
-                    var durationRequest = NSMutableURLRequest(URL: durationURL!)
-                    durationRequest.HTTPMethod = "GET"
-                    
-                    var durationtask = NSURLSession.sharedSession().dataTaskWithRequest(durationRequest, completionHandler: {
-                        durationData, response, error in
-                        if (error == nil){
-                            
-                            println("1")
-                            
-                            self.onSearchDuration(durationData)
-                            
-                        }else{
-                            
-                        }
-                    })
-                    
-                    
-                    
+                    var durationAllURL:String = self.makeParamertar(videoid[j])
+                    self.getDurationData(durationAllURL)
                 }
             }else{
                 self.onSearchFail()
             }
         })
         task.resume()
-        
-//
-//            
-//            
-//        }
     }
-    
-//        //リクエストを飛ばしてjsonデータを取得
-//        var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: nil)
-//        //パースする
-//        var json:NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil) as! NSDictionary
-//        
-//        var pond: AnyObject = json["pond"]!
-//        var value1:AnyObject = pond[0]
-//        var value11:String = (value1["user_id"] as? String)!
-//        var value12:String = (value1["name"] as? String)!
-//        var value13:Int = value1["status"] as! Int
-//        var value14:Int = value1["float"] as! Int
-//        
-//        
-//        var info:String =  value11 + "\n" + value12 + "\n" + String(value13) + "\n" + String(value14) + "\n"
-//        jsonTextView.text = info
-        
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
