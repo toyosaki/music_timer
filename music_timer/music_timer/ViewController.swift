@@ -50,7 +50,6 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         
         var test1:makeArray = makeArray()
         test1.hoge()
-
         
     }
     func youtubeLoad(videoId:String){
@@ -63,7 +62,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         self.moviePlayer.view.frame = CGRect(x:0, y:myBoundSize.height/2, width:self.view.frame.width, height:myBoundSize.height/2)
         self.view.addSubview(moviePlayer.view)
         
-        self.moviePlayer.fullscreen = true
+//        self.moviePlayer.fullscreen = true
         self.moviePlayer.controlStyle = MPMovieControlStyle.Embedded
         self.moviePlayer.shouldAutoplay = true
     }
@@ -231,7 +230,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             var durationAllURL:String = self.makeParamertar(videoid[j])
             self.loadDurationData(durationAllURL)
         }
-        self.pageNumber++   //ページを変える
+//        self.pageNumber++   //ページを変える
     }
     //durationDataの取得
     func loadDurationData(durationAllURL:String) {
@@ -281,11 +280,13 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         if self.isOk {
             self.findedVideoId()
         }else if self.pageNumber < 4 {
+            self.pageNumber++   //ページを変える
             self.requestYoutubeSearch(self.nextPageToken)
         }
     }
     func findedVideoId(){
         println("ビデオが見つかったのでyoutubeを再生")
+        self.youtubeLoad(self.videoId)   //YouTubeを再生
     }
     func checkDuration(duration:String) -> Bool{
         //欲しい長さの動画が見つかった時はcheckerをfalseにする
