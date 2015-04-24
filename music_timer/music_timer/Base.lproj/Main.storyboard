@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-K2-0PC">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-K2-0PC">
                                 <rect key="frame" x="172" y="206" width="30" height="30"/>
                                 <state key="normal" title="get">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -25,15 +25,55 @@
                                     <action selector="onClickGetButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7oJ-1i-16X"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="viewContainer" translatesAutoresizingMaskIntoConstraints="NO" id="YhY-ML-AGq">
+                                <rect key="frame" x="43" y="374" width="288" height="135"/>
+                                <connections>
+                                    <segue destination="8wN-Xp-SXU" kind="embed" id="DK8-Ct-bm3"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="検索結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8c-bA-ik4">
+                                <rect key="frame" x="63" y="345" width="248" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="F8c-bA-ik4" secondAttribute="centerX" id="Wpb-Hv-sxe"/>
+                            <constraint firstAttribute="centerX" secondItem="ajp-K2-0PC" secondAttribute="centerX" id="gks-Px-3a1"/>
+                            <constraint firstAttribute="centerX" secondItem="YhY-ML-AGq" secondAttribute="centerX" id="w78-Up-NQo"/>
+                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="labelResult" destination="F8c-bA-ik4" id="x0h-Vy-lg4"/>
+                        <outlet property="viewContainer" destination="YhY-ML-AGq" id="dXp-VX-ghd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="379.5" y="336.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="x2o-nd-8IU">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="8wN-Xp-SXU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rJE-io-2Bz"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZII-JK-CRZ"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7yH-IE-lFR">
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="135"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUH-WG-DGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="647"/>
         </scene>
     </scenes>
 </document>

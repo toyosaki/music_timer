@@ -19,6 +19,8 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     var myUIPicker: UIPickerView = UIPickerView()
     
+    var player = XCDYouTubeVideoPlayerViewController()
+    
     var minArray:NSArray = makeArray.make();
     var secArray:NSArray = makeArray.make();
     
@@ -38,23 +40,34 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     var videoId:String = ""
     
+    var videoLength:String = ""
+    
+    @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var labelResult: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         //画面サイズを取得
         let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
-        
+                
         myUIPicker.frame = CGRectMake(0,myBoundSize.height/20,view.bounds.width,myBoundSize.height/4)
         myUIPicker.delegate = self
         myUIPicker.dataSource = self
         self.view.addSubview(myUIPicker)
         
-        myWebView.delegate = self
-        myWebView.frame = CGRect(x:0, y:myBoundSize.height/2, width:self.view.frame.width, height:myBoundSize.height/2)
-        self.view.addSubview(myWebView)
-        myWebView.allowsInlineMediaPlayback = true
+//        myWebView.delegate = self
+//        myWebView.frame = CGRect(x:0, y:myBoundSize.height/2, width:self.view.frame.width, height:myBoundSize.height/2)
+//        self.view.addSubview(myWebView)
+//        myWebView.allowsInlineMediaPlayback = true
 
+        
+//        self.view.addSubview(player.view)
+        
+        player.presentInView(self.viewContainer)
+//        player.videoIdentifier = "KV-FJ7k_3pY"
+//        player.moviePlayer.play()
         
         var test1:makeArray = makeArray()
         test1.hoge()
@@ -63,10 +76,14 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     func youtubeLoad(videoId:String){
         let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
         //YouTubeの動画再生
-        let url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=\(videoId)?playsinline=1")!
+        let url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=\(videoId)")!
         let request:NSURLRequest = NSURLRequest(URL: url)
+//        myWebView.loadRequest(request)
+
+        player.videoIdentifier = videoId
+        player.moviePlayer.play()
         
-        myWebView.loadRequest(request)
+//        player.videoIdentifier =
         
 //        var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=\(videoId)")!
 //        var dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
@@ -203,16 +220,24 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     
     @IBAction func onClickGetButton(sender: AnyObject) {
-//        self.youtubeLoad("KV-FJ7k_3pY")
+        if min.toInt() < 4 {
+            videoLength = "short"
+        } else if min.toInt() > 21 {
+            videoLength = "long"
+        }else {
+            videoLength = "medium"
+        }
+        //ロードの表示
+        SVProgressHUD.show()
         self.requestYoutubeSearch("")
     }
     func requestYoutubeSearch(nextPageToken:String) {
         //パラメータを作成してURLを作成
         var dict:Dictionary = [String:String]()
         if nextPageToken == "" {
-            dict = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"medium"]
+            dict = ["part": "snippet", "q": "J-POP mv","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"\(videoLength)"]
         }else{
-            dict = ["part": "snippet", "q": "乃木坂","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"medium","pageToken":"\(nextPageToken)"]
+            dict = ["part": "snippet", "q": "J-POP mv","key" : "AIzaSyA30dmMDdAU8-jKvY9tilTpp4iTvnjXt_c","type":"video","maxResults":"50","videoDuration":"\(videoLength)","pageToken":"\(nextPageToken)"]
         }
         var param = stringFromHttpParameters(dict)
         var allurl:String = "https://www.googleapis.com/youtube/v3/search?" + param
@@ -289,18 +314,26 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             videoId = item["id"].asString!
         }
         return videoId
-
     }
     func onAllLodaComplete(){
         if self.isOk {
             self.findedVideoId()
-        }else if self.pageNumber < 4 {
+        }else if self.pageNumber < 10 {
             self.pageNumber++   //ページを変える
+            if pageNumber >= 9 {
+                self.labelResult.text = "動画がありません。"
+                //ロードの表示
+                SVProgressHUD.dismiss()
+                SVProgressHUD.showErrorWithStatus("動画がありません")
+            }
             self.requestYoutubeSearch(self.nextPageToken)
         }
     }
     func findedVideoId(){
-        println("ビデオが見つかったのでyoutubeを再生")
+        self.labelResult.text = ""
+        SVProgressHUD.dismiss()
+        SVProgressHUD.showSuccessWithStatus("動画がありました")
+        println("動画が見つかったのでyoutubeを再生")
         println(self.videoId)
         self.youtubeLoad(self.videoId)   //YouTubeを再生
     }

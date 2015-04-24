@@ -1,10 +1,16 @@
 PODS:
   - HCYoutubeParser (0.0.2)
+  - SVProgressHUD (1.1.3)
+  - XCDYouTubeKit (2.1.1)
 
 DEPENDENCIES:
   - HCYoutubeParser
+  - SVProgressHUD
+  - XCDYouTubeKit (~> 2.1.1)
 
 SPEC CHECKSUMS:
   HCYoutubeParser: cdfef410cd2ce6ee538a07ee4a1c9ed29069f544
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  XCDYouTubeKit: 5f9bda3a51f2d8af80404b3377bc4696f650d856
 
 COCOAPODS: 0.36.4

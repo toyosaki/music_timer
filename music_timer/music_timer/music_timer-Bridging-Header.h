@@ -3,3 +3,5 @@
 //
 
 #import "HCYoutubeParser.h"
+#import "XCDYouTubeVideoPlayerViewController.h"
+#import <SVProgressHUD.h>
