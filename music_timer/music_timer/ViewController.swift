@@ -11,9 +11,11 @@ import makeArrayFramework
 import MediaPlayer
 
 
-class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource,UIWebViewDelegate {
     
-    var moviePlayer:MPMoviePlayerController!
+//    var moviePlayer:MPMoviePlayerController!
+    
+    var myWebView:UIWebView = UIWebView()
     
     var myUIPicker: UIPickerView = UIPickerView()
     
@@ -48,6 +50,12 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         myUIPicker.dataSource = self
         self.view.addSubview(myUIPicker)
         
+        myWebView.delegate = self
+        myWebView.frame = CGRect(x:0, y:myBoundSize.height/2, width:self.view.frame.width, height:myBoundSize.height/2)
+        self.view.addSubview(myWebView)
+        myWebView.allowsInlineMediaPlayback = true
+
+        
         var test1:makeArray = makeArray()
         test1.hoge()
         
@@ -55,16 +63,21 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     func youtubeLoad(videoId:String){
         let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
         //YouTubeの動画再生
-        var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=\(videoId)")!
-        var dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
-        var url2 = NSURL(string: dict["medium"] as! String)
-        self.moviePlayer = MPMoviePlayerController(contentURL: url2)
-        self.moviePlayer.view.frame = CGRect(x:0, y:myBoundSize.height/2, width:self.view.frame.width, height:myBoundSize.height/2)
-        self.view.addSubview(moviePlayer.view)
+        let url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=\(videoId)?playsinline=1")!
+        let request:NSURLRequest = NSURLRequest(URL: url)
         
+        myWebView.loadRequest(request)
+        
+//        var url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=\(videoId)")!
+//        var dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
+//        var url2 = NSURL(string: dict["medium"] as! String)
+//        self.moviePlayer = MPMoviePlayerController(contentURL: url2)
+//        self.moviePlayer.view.frame = CGRect(x:0, y:myBoundSize.height/2, width:self.view.frame.width, height:myBoundSize.height/2)
+//        self.view.addSubview(moviePlayer.view)
+//        
 //        self.moviePlayer.fullscreen = true
-        self.moviePlayer.controlStyle = MPMovieControlStyle.Embedded
-        self.moviePlayer.shouldAutoplay = true
+//        self.moviePlayer.controlStyle = MPMovieControlStyle.Embedded
+//        self.moviePlayer.shouldAutoplay = true
     }
     
     //表示例
@@ -98,12 +111,14 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             min = minArray[row].description
             self.pageNumber = 0
             self.checker = true
+            self.isOk = false
             println("列\(row)")
             println("値\(minArray[row])")
         }else if(component == 1){
             sec = secArray[row].description
             self.pageNumber = 0
             self.checker = true
+            self.isOk = false
             println("列\(row)")
             println("値\(secArray[row])")
         }
@@ -286,6 +301,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     }
     func findedVideoId(){
         println("ビデオが見つかったのでyoutubeを再生")
+        println(self.videoId)
         self.youtubeLoad(self.videoId)   //YouTubeを再生
     }
     func checkDuration(duration:String) -> Bool{
